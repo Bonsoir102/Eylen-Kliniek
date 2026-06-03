@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eylen Kliniek — Dr Fellah Zohra · Médecine Esthétique & Fonctionnelle · Schepdaal</title>
+  <meta name="description" content="Cabinet médical Dr Fellah Zohra à Schepdaal. Médecine esthétique, fonctionnelle, alopécie, ménopause, acné. Contactez-nous au 0477 46 41 95." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --b0: #FDFAF5;
+      --b1: #F5EFE4;
+      --b2: #EAE0D0;
+      --b3: #D9CCBA;
+      --b4: #C3B49E;
+      --b5: #A08C74;
+      --b6: #7A6555;
+      --b7: #4A3C30;
+      --b8: #2C2218;
+      --gold: #C4933F;
+      --gold-lt: #E8D4A8;
+      --gold-pale: #F5EDD8;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--b0);
+      color: var(--b7);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── CURSOR ── */
+    body { cursor: none; }
+    #cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .25s, height .25s, opacity .25s;
+    }
+    #cursor.big { width: 36px; height: 36px; opacity: .4; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 68px;
+      background: rgba(253,250,245,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--b2);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(44,34,24,.07); }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .nav-eylen {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      color: var(--b8);
+      line-height: 1;
+    }
+    .nav-sub {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--b5);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--b6);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color .2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width .3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-tel {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--b8);
+      text-decoration: none;
+      letter-spacing: .02em;
+      transition: color .2s;
+    }
+    .nav-tel:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9rem 4rem 4rem 5rem;
+      position: relative;
+    }
+    .hero-left::before {
+      content: 'EYLEN';
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      font-family: var(--serif);
+      font-size: 80px;
+      font-weight: 300;
+      color: var(--b2);
+      letter-spacing: .3em;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(38px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--b8);
+      margin-bottom: 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--b5);
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--b6);
+      max-width: 400px;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--b8);
+      color: var(--b0);
+      padding: 13px 28px;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 400;
+      text-decoration: none;
+      border: none;
+      cursor: none;
+      transition: background .25s;
+    }
+    .btn-primary:hover { background: var(--gold); }
+
+    .btn-ghost {
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--b5);
+      text-decoration: none;
+      border-bottom: 1px solid var(--b3);
+      padding-bottom: 2px;
+      transition: color .2s, border-color .2s;
+      cursor: none;
+    }
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+    .hero-right {
+      background: var(--b1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 30px,
+        rgba(196,147,63,.04) 30px,
+        rgba(196,147,63,.04) 31px
+      );
+    }
+
+    .hero-circle {
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-lt);
+    }
+    .hero-circle-2 {
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 1px solid var(--b3);
+    }
+
+    .hero-card {
+      background: var(--b0);
+      border: 1px solid var(--b2);
+      padding: 2rem 2rem 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-card-tag {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: .75rem;
+    }
+    .hero-card-dr {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--b8);
+      line-height: 1.1;
+      margin-bottom: .25rem;
+    }
+    .hero-card-spec {
+      font-size: 12px;
+      color: var(--b5);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .hero-card-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin-bottom: 1.25rem;
+    }
+    .hero-card-info {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      font-size: 12px;
+    }
+    .info-label {
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--b4);
+      min-width: 50px;
+      padding-top: 2px;
+      font-weight: 400;
+    }
+    .info-val {
+      color: var(--b7);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .info-val a { color: var(--b7); text-decoration: none; }
+    .info-val.phone {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--b8);
+    }
+    .info-val.phone a { color: inherit; }
+
+    /* ── SECTION SHARED ── */
+    .section { padding: 6rem 5rem; }
+    .section-alt { background: var(--b1); }
+    .section-label {
+      font-size: 9px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 1.25rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px; height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 300;
+      color: var(--b8);
+      line-height: 1.2;
+      margin-bottom: .75rem;
+    }
+    .section-title em { font-style: italic; color: var(--b5); }
+    .section-intro {
+      font-size: 13px;
+      color: var(--b5);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── SOINS GRID ── */
+    .soins-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--b2);
+      border: 1px solid var(--b2);
+    }
+
+    .soin-tile {
+      background: var(--b0);
+      padding: 2rem 1.5rem 1.75rem;
+      cursor: none;
+      transition: background .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .soin-tile::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width .35s;
+    }
+    .soin-tile:hover { background: var(--gold-pale); }
+    .soin-tile:hover::after { width: 100%; }
+
+    .soin-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--b2);
+      line-height: 1;
+      margin-bottom: .75rem;
+      transition: color .25s;
+    }
+    .soin-tile:hover .soin-num { color: var(--gold-lt); }
+
+    .soin-icon {
+      font-size: 18px;
+      margin-bottom: .75rem;
+      display: block;
+    }
+
+    .soin-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--b8);
+      margin-bottom: .5rem;
+      line-height: 1.25;
+    }
+    .soin-brief {
+      font-size: 11.5px;
+      color: var(--b5);
+      line-height: 1.7;
+    }
+    .soin-more {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 1rem;
+      font-weight: 400;
+    }
+    .soin-more span { transition: transform .2s; }
+    .soin-tile:hover .soin-more span { transform: translateX(4px); }
+
+    /* ── EXPERTISE ── */
+    .expertise-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .expertise-sticky {
+      position: sticky;
+      top: 90px;
+    }
+    .expertise-quote {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2vw, 26px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--b6);
+      line-height: 1.5;
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .expertise-items { display: flex; flex-direction: column; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--b2);
+      align-items: start;
+    }
+    .exp-item:first-child { border-top: 1px solid var(--b2); }
+    .exp-n {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--b3);
+      line-height: 1;
+    }
+    .exp-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--b8);
+      margin-bottom: .5rem;
+      line-height: 1.2;
+    }
+    .exp-text {
+      font-size: 13px;
+      color: var(--b5);
+      line-height: 1.8;
+    }
+    .exp-badge {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: var(--gold-pale);
+      color: var(--b6);
+      padding: 4px 10px;
+      margin-top: .75rem;
+      font-weight: 400;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--b8);
+      padding: 6rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-section::before {
+      content: 'EYLEN\AKLINIEK';
+      position: absolute;
+      right: -2rem;
+      bottom: -2rem;
+      font-family: var(--serif);
+      font-size: 120px;
+      font-weight: 300;
+      color: rgba(255,255,255,.03);
+      letter-spacing: .1em;
+      white-space: pre;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-left .section-label { color: var(--gold); }
+    .contact-left .section-label::before { background: var(--gold); }
+    .contact-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 300;
+      color: var(--b0);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .contact-title em { font-style: italic; color: var(--gold-lt); }
+    .contact-note {
+      font-size: 13px;
+      color: var(--b4);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .contact-tel-block {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+      margin-bottom: 2rem;
+    }
+    .tel-label {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--b5);
+      font-weight: 400;
+    }
+    .tel-number {
+      font-family: var(--serif);
+      font-size: 44px;
+      font-weight: 300;
+      color: var(--b0);
+      letter-spacing: .04em;
+      line-height: 1;
+    }
+    .tel-number a {
+      color: inherit;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .tel-number a:hover { color: var(--gold); }
+
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .cinfo-block {}
+    .cinfo-label {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--b5);
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    .cinfo-val {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--b1);
+      line-height: 1.5;
+    }
+    .cinfo-val a { color: var(--gold-lt); text-decoration: none; }
+    .cinfo-sep {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,.07);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--b8);
+      border-top: 1px solid rgba(255,255,255,.05);
+      padding: 1.75rem 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--b3);
+      letter-spacing: .04em;
+    }
+    .footer-copy {
+      font-size: 10px;
+      color: var(--b5);
+      letter-spacing: .06em;
+    }
+
+    /* ── MODAL ── */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(44,34,24,.6);
+      backdrop-filter: blur(4px);
+      z-index: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+    .overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal {
+      background: var(--b0);
+      border: 1px solid var(--b2);
+      max-width: 520px;
+      width: 100%;
+      padding: 3rem;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform .35s;
+    }
+    .overlay.open .modal { transform: translateY(0); }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem; right: 1.5rem;
+      background: none;
+      border: none;
+      font-family: var(--serif);
+      font-size: 28px;
+      color: var(--b4);
+      cursor: none;
+      transition: color .2s;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--b8); }
+    .modal-tag {
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: .75rem;
+    }
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--b8);
+      margin-bottom: .5rem;
+      line-height: 1.2;
+    }
+    .modal-line {
+      width: 32px; height: 1px;
+      background: var(--gold);
+      margin: 1rem 0;
+    }
+    .modal-text {
+      font-size: 13.5px;
+      color: var(--b6);
+      line-height: 1.85;
+    }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 7rem 2rem 3rem; }
+      .hero-left::before { display: none; }
+      .hero-right { padding: 2rem; min-height: 340px; }
+      .section { padding: 4rem 2rem; }
+      .soins-grid { grid-template-columns: 1fr 1fr; }
+      .expertise-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .expertise-sticky { position: static; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-section { padding: 4rem 2rem; }
+      footer { padding: 1.5rem 2rem; }
+    }
+    @media (max-width: 560px) {
+      .soins-grid { grid-template-columns: 1fr; }
+      .tel-number { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor"></div>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-brand">
+      <span class="nav-eylen">Eylen Kliniek</span>
+      <span class="nav-sub">Dr Fellah Zohra · Schepdaal</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#soins">Soins</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:0477464195" class="nav-tel">0477 46 41 95</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Médecine esthétique &amp; fonctionnelle</div>
+      <h1 class="hero-title">
+        Votre bien-être,<br><em>notre expertise</em>
+      </h1>
+      <p class="hero-desc">
+        Chaque consultation est pensée pour vous, dans un cadre médical rigoureux et bienveillant. Du soin esthétique à la médecine fonctionnelle, le Dr Fellah vous accompagne à chaque étape.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Prendre rendez-vous →</a>
+        <a href="#soins" class="btn-ghost">Découvrir les soins</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-circle"></div>
+      <div class="hero-circle-2"></div>
+      <div class="hero-card">
+        <div class="hero-card-tag">Cabinet médical</div>
+        <div class="hero-card-dr">Dr Fellah Zohra</div>
+        <div class="hero-card-spec">
+          Médecine esthétique &amp; fonctionnelle<br>
+          Médecin formatrice Mesoestetic &amp; Vivacy
+        </div>
+        <div class="hero-card-divider"></div>
+        <div class="hero-card-info">
+          <div class="info-row">
+            <span class="info-label">Tél.</span>
+            <span class="info-val phone"><a href="tel:0477464195">0477 46 41 95</a></span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Adresse</span>
+            <span class="info-val">776 Ninoofsesteenweg<br>1703 Schepdaal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOINS -->
+  <section class="section" id="soins">
+    <div class="section-label reveal">Nos soins</div>
+    <h2 class="section-title reveal">Ce que nous <em>traitons</em></h2>
+    <p class="section-intro reveal">Cliquez sur un soin pour en apprendre davantage. Chaque prise en charge est individualisée, médicalement encadrée et adaptée à votre profil.</p>
+
+    <div class="soins-grid">
+
+      <div class="soin-tile reveal" onclick="openModal('meso-esth')">
+        <div class="soin-num">01</div>
+        <div class="soin-name">Mésothérapie esthétique</div>
+        <div class="soin-brief">Revitalisation et hydratation profonde de la peau par microinjections d'actifs ciblés.</div>
+        <div class="soin-more">En savoir plus <span>→</span></div>
+      </div>
+
+      <div class="soin-tile reveal" onclick="openModal('meso-rhumato')">
+        <div class="soin-num">02</div>
+        <div class="soin-name">Mésothérapie rhumatologique</div>
+        <div class="soin-brief">Traitement local des douleurs articulaires et musculaires par infiltrations médicales précises.</div>
+        <div class="soin-more">En savoir plus <span>→</span></div>
+      </div>
+
+      <div class="soin-tile reveal" onclick="openModal('morpho')">
+        <div class="soin-num">03</div>
+        <div class="soin-name">Morphonutrition</div>
+        <div class="soin-brief">Programme alimentaire sur-mesure selon votre morphologie, vos carences et vos objectifs.</div>
+        <div class="soin-more">En savoir plus <span>→</span></div>
+      </div>
+
+      <div class="soin-tile reveal" onclick="openModal('esthet')">
+        <div class="soin-num">04</div>
+        <div class="soin-name">Médecine esthétique &amp; petites chirurgies</div>
+        <div class="soin-brief">Injections, comblement, rajeunissement du regard et petits gestes chirurgicaux médicaux.</div>
+        <div class="soin-more">En savoir plus <span>→</span></div>
+      </div>
+
+      <div class="soin-tile reveal" onclick="openModal('alopecie')">
+        <div class="soin-num">05</div>
+        <div class="soin-name">Alopécie</div>
+        <div class="soin-brief">Diagnostic et traitement médical de la chute de cheveux chez la femme et l'homme.</div>
+        <div class="soin-more">En savoir plus <span>→</span></div>
+      </div>
+
+      <div class="soin-tile reveal" onclick="openModal('menopause')">
+        <div class="soin-num">06</div>
+        <div class="soin-name">Ménopause</div>
+        <div class="soin-brief">Accompagnement global des symptômes climatériques pour traverser cette étape sereinement.</div>
+        <div class="soin-more">En savoir plus <span>→</span></div>
+      </div>
+
+      <div class="soin-tile reveal" onclick="openModal('acne')">
+        <div class="soin-num">07</div>
+        <div class="soin-name">Acné</div>
+        <div class="soin-brief">Prise en charge médicale personnalisée de l'acné, de l'adolescent à l'adulte.</div>
+        <div class="soin-more">En savoir plus <span>→</span></div>
+      </div>
+
+      <div class="soin-tile reveal" onclick="openModal('fonctionnelle')">
+        <div class="soin-num">08</div>
+        <div class="soin-name">Médecine fonctionnelle</div>
+        <div class="soin-brief">Recherche des causes profondes des déséquilibres de santé pour un traitement de fond durable.</div>
+        <div class="soin-more">En savoir plus <span>→</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section class="section section-alt" id="expertise">
+    <div class="expertise-layout">
+      <div class="expertise-sticky">
+        <div class="section-label reveal">Formations &amp; expertises</div>
+        <h2 class="section-title reveal">L'excellence <em>au cœur</em> de la pratique</h2>
+        <blockquote class="expertise-quote reveal">
+          "Former les autres, c'est la preuve d'une maîtrise reconnue."
+        </blockquote>
+      </div>
+      <div class="expertise-items">
+
+        <div class="exp-item reveal">
+          <div class="exp-n">01</div>
+          <div>
+            <div class="exp-name">Mésothérapie esthétique &amp; rhumatologique</div>
+            <p class="exp-text">Double compétence en mésothérapie, alliant les protocoles esthétiques (hydratation, anti-âge, éclat de teint) et rhumatologiques (tendinites, arthroses, cervicalgies). Chaque technique est appliquée avec une précision médicale rigoureuse, pour un résultat optimal et sécurisé.</p>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-n">02</div>
+          <div>
+            <div class="exp-name">Morphonutrition</div>
+            <p class="exp-text">Approche intégrative combinant l'analyse de la morphologie corporelle et la nutrition médicale. Idéale pour la gestion du poids, la fatigue chronique, les déséquilibres hormonaux ou la préparation à la ménopause. Un programme alimentaire réellement personnalisé.</p>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-n">03</div>
+          <div>
+            <div class="exp-name">Médecine esthétique &amp; petites chirurgies</div>
+            <p class="exp-text">Du comblement à l'acide hyaluronique aux injections de toxine botulique, en passant par les petites excisions cutanées, le Dr Fellah réalise l'ensemble des actes esthétiques médicaux dans un cadre de sécurité optimal, avec un souci constant du naturel.</p>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-n">04</div>
+          <div>
+            <div class="exp-name">Médecin formatrice — Mesoestetic &amp; Vivacy</div>
+            <p class="exp-text">Le Dr Fellah forme d'autres professionnels de santé pour deux laboratoires de référence internationale : Mesoestetic, leader en cosméceutique médicale, et Vivacy, spécialiste de l'acide hyaluronique. Un engagement reconnu au plus haut niveau de la formation médicale esthétique.</p>
+            <span class="exp-badge">Formatrice agréée</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-label reveal">Nous contacter</div>
+        <h2 class="contact-title reveal">Prenez <em>rendez-vous</em></h2>
+        <p class="contact-note reveal">Le cabinet accueille toute patientèle, sans restriction d'âge ni de profil. Pour toute question ou pour fixer une consultation, appelez directement.</p>
+        <div class="contact-tel-block reveal">
+          <span class="tel-label">Téléphone</span>
+          <div class="tel-number"><a href="tel:0477464195">0477 46 41 95</a></div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="cinfo-block reveal">
+          <div class="cinfo-label">Médecin</div>
+          <div class="cinfo-val">Dr Fellah Zohra</div>
+        </div>
+        <div class="cinfo-sep"></div>
+        <div class="cinfo-block reveal">
+          <div class="cinfo-label">Adresse</div>
+          <div class="cinfo-val">
+            776 Ninoofsesteenweg<br>
+            1703 Schepdaal, Belgique
+          </div>
+        </div>
+        <div class="cinfo-sep"></div>
+        <div class="cinfo-block reveal">
+          <div class="cinfo-label">Spécialités</div>
+          <div class="cinfo-val" style="font-size:14px;line-height:1.7;font-family:var(--sans);font-weight:300;color:#B8A898;">
+            Médecine esthétique · Médecine fonctionnelle<br>
+            Alopécie · Ménopause · Acné<br>
+            Mésothérapie · Morphonutrition
+          </div>
+        </div>
+        <div class="cinfo-sep"></div>
+        <div class="cinfo-block reveal">
+          <div class="cinfo-label">Formations</div>
+          <div class="cinfo-val" style="font-size:14px;font-family:var(--sans);font-weight:300;color:#B8A898;">
+            Médecin formatrice <a href="#">Mesoestetic</a> &amp; <a href="#">Vivacy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Eylen Kliniek · Dr Fellah Zohra</div>
+    <div class="footer-copy">776 Ninoofsesteenweg · 1703 Schepdaal · 0477 46 41 95</div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
+    <div class="modal" id="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Fermer">×</button>
+      <div class="modal-tag" id="modal-tag"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-line"></div>
+      <div class="modal-text" id="modal-text"></div>
+    </div>
+  </div>
+
+  <script>
+    // Cursor
+    const cur = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px';
+      cur.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .soin-tile').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('big'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+    });
+
+    // Nav scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+
+    // Modal data
+    const modals = {
+      'meso-esth': {
+        tag: 'Soin esthétique',
+        title: 'Mésothérapie esthétique',
+        text: "La mésothérapie esthétique consiste à injecter, à l'aide de fines aiguilles, des cocktails de vitamines, d'acide hyaluronique ou d'autres principes actifs directement dans la couche superficielle de la peau. Résultat : une peau plus hydratée, plus lumineuse, avec une amélioration visible des ridules, du teint terne et des cernes. Soin sans chirurgie, rapide et efficace, idéal pour revitaliser sa peau de manière naturelle et médicalement encadrée."
+      },
+      'meso-rhumato': {
+        tag: 'Soin médical',
+        title: 'Mésothérapie rhumatologique',
+        text: "Utilisée depuis des décennies en médecine de la douleur, la mésothérapie rhumatologique cible les douleurs articulaires, musculaires et tendineuses : arthrose, tendinites, cervicalgies, lombalgies. Des médicaments anti-inflammatoires ou décontracturants sont injectés à très faibles doses directement au point douloureux, ce qui permet une action locale puissante avec un minimum d'effets secondaires. Une alternative sérieuse aux traitements oraux prolongés."
+      },
+      'morpho': {
+        tag: 'Médecine fonctionnelle',
+        title: 'Morphonutrition',
+        text: "La morphonutrition associe l'analyse de la morphologie corporelle — répartition des graisses, tensions musculaires, cellulite localisée — à une prise en charge nutritionnelle personnalisée. Le Dr Fellah identifie les déséquilibres hormonaux, les carences ou les habitudes alimentaires inadaptées pour proposer un programme sur mesure. Particulièrement efficace pour la gestion du poids, la fatigue chronique, les troubles hormonaux ou la préparation à la ménopause."
+      },
+      'esthet': {
+        tag: 'Médecine esthétique',
+        title: 'Médecine esthétique & petites chirurgies',
+        text: "Le Dr Fellah pratique l'ensemble des actes de médecine esthétique injectables : toxine botulique pour détendre les rides d'expression, comblement par acide hyaluronique pour restaurer les volumes du visage, biorevitalisation, rajeunissement du regard. Elle réalise également de petits gestes chirurgicaux médicaux tels que l'excision de lésions cutanées bénignes. Chaque intervention vise un résultat naturel, adapté à la morphologie et aux souhaits du patient."
+      },
+      'alopecie': {
+        tag: 'Traitement spécialisé',
+        title: 'Alopécie — Chute de cheveux',
+        text: "La chute de cheveux peut avoir de nombreuses causes : stress, carences nutritionnelles, déséquilibres hormonaux, facteurs génétiques, maladies auto-immunes. Le Dr Fellah établit un bilan complet pour identifier la cause et proposer un traitement adapté : mésothérapie capillaire, compléments ciblés, traitements topiques ou prescription médicale. La prise en charge concerne aussi bien les femmes que les hommes, à tout âge."
+      },
+      'menopause': {
+        tag: 'Accompagnement hormonal',
+        title: 'Prise en charge de la ménopause',
+        text: "La ménopause est une étape naturelle mais qui peut s'accompagner de symptômes invalidants : bouffées de chaleur, troubles du sommeil, prise de poids, sécheresse cutanée, fatigue, changements d'humeur. Le Dr Fellah propose une prise en charge globale et bienveillante : bilan hormonal, approche nutritionnelle, traitements médicaux adaptés et accompagnement esthétique pour que cette période soit vécue avec sérénité et confiance."
+      },
+      'acne': {
+        tag: 'Dermatologie médicale',
+        title: "Traitement de l'acné",
+        text: "L'acné est une maladie cutanée qui touche aussi bien les adolescents que les adultes, avec des répercussions physiques et psychologiques importantes. Le Dr Fellah prend en charge l'acné de manière globale : identification des facteurs déclenchants (hormones, alimentation, stress), prescription médicale adaptée, soins locaux, et suivi dans le temps pour éviter les récidives et limiter l'apparition de cicatrices. Chaque protocole est individualisé."
+      },
+      'fonctionnelle': {
+        tag: 'Approche globale',
+        title: 'Médecine fonctionnelle',
+        text: "La médecine fonctionnelle ne traite pas les symptômes isolément : elle recherche les causes profondes des déséquilibres de santé. Fatigue chronique, troubles digestifs, inflammation de bas grade, résistance à l'insuline, déséquilibres hormonaux... Grâce à des bilans approfondis et une approche intégrative prenant en compte la nutrition, le microbiote, le stress oxydatif et les perturbateurs endocriniens, le Dr Fellah propose des solutions durables qui s'attaquent à la racine du problème."
+      }
+    };
+
+    function openModal(key) {
+      const d = modals[key];
+      if (!d) return;
+      document.getElementById('modal-tag').textContent = d.tag;
+      document.getElementById('modal-title').textContent = d.title;
+      document.getElementById('modal-text').textContent = d.text;
+      document.getElementById('overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('overlay')) closeModal();
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
